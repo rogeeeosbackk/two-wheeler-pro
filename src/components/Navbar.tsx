@@ -18,17 +18,17 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
+    <nav className="bg-card/95 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="bg-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="bg-gradient-to-br from-primary to-primary/80 p-2.5 rounded-xl shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
               <Wrench className="h-6 w-6 text-primary-foreground" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg text-foreground">BikeService</span>
-              <span className="text-xs text-muted-foreground">Pro Workshop</span>
+              <span className="font-bold text-lg text-foreground tracking-tight">BikeService</span>
+              <span className="text-xs text-muted-foreground font-medium">Pro Workshop</span>
             </div>
           </Link>
 
@@ -38,10 +38,10 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-foreground hover:bg-muted/80"
                 }`}
               >
                 {link.name}

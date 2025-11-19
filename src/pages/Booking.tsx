@@ -103,7 +103,7 @@ const Booking = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <Card className="p-8">
+            <Card className="p-10 shadow-xl border-border/30">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Personal Information */}
                 <div className="space-y-4">
