@@ -92,19 +92,19 @@ const Services = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-all hover:-translate-y-1"
+                className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-border/30"
               >
-                <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="h-7 w-7 text-primary" />
+                <div className="bg-gradient-to-br from-primary/10 to-accent/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-bold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm">
+                <p className="text-muted-foreground mb-5 text-sm leading-relaxed">
                   {service.description}
                 </p>
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-accent font-semibold">{service.price}</span>
+                <div className="flex items-center justify-between pt-5 border-t border-border/30">
+                  <span className="text-accent font-bold text-lg">{service.price}</span>
                 </div>
               </Card>
             ))}

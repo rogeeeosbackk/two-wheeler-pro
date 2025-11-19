@@ -109,12 +109,12 @@ const Home = () => {
                 description: "Fast turnaround time without compromising on quality of work"
               },
             ].map((item, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <item.icon className="h-6 w-6 text-primary" />
+              <Card key={index} className="p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                <div className="bg-gradient-to-br from-primary/10 to-accent/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </Card>
             ))}
           </div>
@@ -140,11 +140,11 @@ const Home = () => {
               { name: "Oil Change", icon: Wrench },
               { name: "Brake Service", icon: Wrench },
             ].map((service, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-md transition-shadow">
-                <div className="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <service.icon className="h-8 w-8 text-accent" />
+              <Card key={index} className="p-7 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group border-border/30">
+                <div className="bg-gradient-to-br from-accent/10 to-accent/5 w-18 h-18 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-9 w-9 text-accent" />
                 </div>
-                <h3 className="font-semibold">{service.name}</h3>
+                <h3 className="font-bold text-foreground">{service.name}</h3>
               </Card>
             ))}
           </div>
@@ -171,8 +171,8 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6">
-                <div className="flex mb-3">
+              <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-card to-muted/20">
+                <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg
                       key={i}
@@ -183,8 +183,8 @@ const Home = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-4">"{testimonial.text}"</p>
-                <p className="font-semibold text-foreground">- {testimonial.name}</p>
+                <p className="text-muted-foreground mb-5 leading-relaxed italic">"{testimonial.text}"</p>
+                <p className="font-bold text-foreground">- {testimonial.name}</p>
               </Card>
             ))}
           </div>
