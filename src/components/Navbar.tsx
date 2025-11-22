@@ -8,57 +8,58 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "News", path: "/news" },
-    { name: "Career", path: "/career" },
+    { name: "Booking", path: "/booking" },
     { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+    <nav className="bg-card/95 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="bg-automotive-dark p-3 rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300">
-              <Wrench className="h-7 w-7 text-white" />
+            <div className="bg-gradient-to-br from-primary to-primary/80 p-2.5 rounded-xl shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+              <Wrench className="h-6 w-6 text-primary-foreground" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-2xl text-automotive-dark tracking-tight">AutoService</span>
-              <span className="text-xs text-muted-foreground font-medium">Professional Care</span>
+              <span className="font-bold text-lg text-foreground tracking-tight">BikeService</span>
+              <span className="text-xs text-muted-foreground font-medium">Pro Workshop</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? "text-automotive-dark"
-                    : "text-gray-600 hover:text-automotive-dark"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-foreground hover:bg-muted/80"
                 }`}
               >
                 {link.name}
               </Link>
             ))}
-            <Button 
-              asChild 
-              className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 rounded-full shadow-lg hover:shadow-xl transition-all"
-            >
-              <Link to="/booking">Request a service</Link>
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Button asChild variant="default">
+              <Link to="/booking">Book Service</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md text-automotive-dark hover:bg-muted"
+            className="md:hidden p-2 rounded-md text-foreground hover:bg-muted"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -66,7 +67,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-4 space-y-2 border-t border-border animate-fade-in">
+          <div className="md:hidden py-4 space-y-2 border-t border-border animate-fade-in">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -74,17 +75,17 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(link.path)
-                    ? "text-automotive-dark"
-                    : "text-gray-600 hover:text-automotive-dark"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-muted"
                 }`}
               >
                 {link.name}
               </Link>
             ))}
             <div className="px-4 pt-2">
-              <Button asChild className="w-full bg-accent hover:bg-accent/90">
+              <Button asChild className="w-full">
                 <Link to="/booking" onClick={() => setIsOpen(false)}>
-                  Request a service
+                  Book Service
                 </Link>
               </Button>
             </div>
